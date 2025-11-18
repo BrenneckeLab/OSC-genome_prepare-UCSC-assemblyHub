@@ -1,0 +1,80 @@
+#!/bin/bash
+
+#preload all aliases
+#set -a to automatically export all functions
+set -a
+
+#tools from basicTools
+seqkit() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app seqkit "$@"; }
+faToTwoBit() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp   ${SINGULARITYdir}basicTools.app faToTwoBit "$@"; }
+bowtie() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app bowtie "$@"; }
+bowtieBuild() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app bowtie-build "$@"; }
+star() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app STAR "$@"; }
+samtools() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app samtools "$@"; }
+bedtools() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app bedtools "$@"; }
+bigBedToBed() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app bigBedToBed "$@"; }
+bedToBigBed() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app bedToBigBed "$@"; }
+twoBitInfo() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app twoBitInfo "$@"; }
+gff3ToGenePred() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app gff3ToGenePred "$@"; }
+gtfToGenePred() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app gtfToGenePred "$@"; }
+genePredToBigGenePred() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app genePredToBigGenePred "$@"; }
+bedGraphToBigWig() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app bedGraphToBigWig "$@"; }
+tabix() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app tabix "$@"; }
+bgzip() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app bgzip "$@"; }
+parallel() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app parallel "$@"; }
+bwa() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp   ${SINGULARITYdir}basicTools.app bwa "$@" ; }
+bcftools() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp   ${SINGULARITYdir}basicTools.app bcftools "$@" ; }
+minimap2() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app minimap2 "$@"; }
+calN50() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}basicTools.app calN50.js "$@"; }
+
+#tools in sniffles
+ngmlr() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}sniffles.app ngmlr "$@" ; }
+sniffles() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}sniffles.app sniffles "$@" ; }
+
+#tools in sniffles
+cuteSV() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}cuteSV.app cuteSV "$@" ; }
+
+
+#tools in repeatmasker
+RepeatMasker() { singularity exec ${SINGULARITYdir}repeatmasker.app RepeatMasker "$@"; }
+asmHubRepeatMasker() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app /Software/kentUtils/kent/src/hg/utils/automation/asmHubRepeatMasker.sh "$@"; }
+#@ RepeatMasker() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app RepeatMasker "$@"; }
+blat() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app blat "$@"; }
+pslToBed() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app pslToBed "$@"; }
+bedToGenePred() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app bedToGenePred "$@"; }
+genePredCheck() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app genePredCheck "$@"; }
+genePredToBed() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app genePredToBed "$@"; }
+ixIxx() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}repeatmasker.app ixIxx "$@"; }
+#tools in mummer
+nucmer() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}mummer.app nucmer "$@"; }
+
+#tools in Liftoff
+liftoff() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}Liftoff.app liftoff "$@" ; }
+gt() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}Liftoff.app gt "$@" ; }
+gffread() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}Liftoff.app gffread "$@" ; }
+
+#deep-variant
+deepvariant() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  --nv ${SINGULARITYdir}deep-variant.app deep-variant "$@" ; }
+
+#rtg-tools
+rtg() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}rtg-tools.app rtg "$@" ; }
+
+#annotate_my_genome
+hisat2() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}annotate_my_genome.app /hisat2/hisat2 "$@" ; }
+hisat2_build() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}annotate_my_genome.app /hisat2/hisat2-build "$@" ; }
+stringtie() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}annotate_my_genome.app stringtie "$@" ; }
+
+#kmer analysis toolkit
+kat() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}KAT.app kat "$@" ; }
+distanalysis() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp  ${SINGULARITYdir}KAT.app /KAT/scripts/kat/distanalysis.py "$@" ; }
+
+#clair3
+clair3() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp   ${SINGULARITYdir}clair3.app /opt/bin/run_clair3.sh "$@" ; }
+
+#pepper-deepvariant
+pepper_deepvariant() { singularity exec --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp -B /usr/lib/locale/ ${SINGULARITYdir}pepper-deepvariant.app run_pepper_margin_deepvariant "$@" ; }
+
+#deepvariant
+deepvariant() { singularity exec --nv --cleanenv --contain -B /groups -B /scratch -B /scratch-cbe -B ${TMPdir}:/tmp -B /usr/lib/locale/ ${SINGULARITYdir}deepvariant.app /opt/deepvariant/bin/run_deepvariant  "$@" ; }
+
+set +a
